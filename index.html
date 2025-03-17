@@ -1,38 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Audio Player</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Чат с AI</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="player-container">
-        <!-- Аудіо-плеєр -->
-        <audio id="audio-player" controls>
-            <source id="audio-source" src="" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="controls">
-            <button id="prev">Previous</button>
-            <button id="next">Next</button>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="message bot">Привет! Чем могу помочь?</div>
         </div>
-        <div class="track-info">
-            <p id="track-title">Loading...</p>
-        </div>
-    </div>
-
-    <!-- Форма для завантаження нової музики -->
-    <div class="upload-form">
-        <h3>Upload your music</h3>
-        <form id="upload-form">
-            <label for="title">Track Title:</label>
-            <input type="text" id="title" name="title" required><br><br>
-            <label for="file">Choose MP3 File:</label>
-            <input type="file" id="file" name="file" accept=".mp3" required><br><br>
-            <button type="submit">Upload</button>
-        </form>
-        <p id="upload-status"></p>
+        <input type="text" id="user-input" placeholder="Введите сообщение...">
+        <button onclick="sendMessage()">Отправить</button>
     </div>
 
     <script src="script.js"></script>
