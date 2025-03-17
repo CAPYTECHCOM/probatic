@@ -16,10 +16,23 @@ function sendMessage() {
         },
         body: JSON.stringify({ sender: "user", message: message })
     })
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => {
-        if (data.length > 0) addMessage(data[0].text, "bot");
-    });
+        if (data.length > 0) {
+            addMessage(data[0].text, "bot");
+        }
+    })
+    .catch(error => console.error("Ошибка:", error));
 
     userInput.value = "";
+}
+
+// ✅ Функция для добавления сообщений в чат
+function addMessage(text, sender) {
+    let chatBox = document.getElementById("chat-box");
+    let messageElement = document.createElement("div");
+    messageElement.classList.add("message", sender);
+    messageElement.innerText = text;
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
